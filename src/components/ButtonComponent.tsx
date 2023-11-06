@@ -14,7 +14,6 @@ export function ButtonComponent() {
     try {
       const response = await axios.get(`${baseUrl}/perguntas/${tema}`);
       setPerguntas(response.data);
-      console.log("CAIU...");
       console.log(perguntas);
     } catch(error) {
       console.log(error);
@@ -33,19 +32,23 @@ export function ButtonComponent() {
         <button type="button" className="btn btn-primary" onClick={() => handleClick("internet")}>
           Internet
         </button>
-        <button type="button" className="btn btn-primary">
+        <button type="button" className="btn btn-primary" onClick={() => handleClick("aleatorias")}>
           Aleatórias
         </button>
 
-       {perguntas.map((pergunta) => (
-          <Pergunta 
-            key={pergunta.id}
-            id={pergunta.id}
-            pergunta={pergunta.pergunta}
-            opcoes={pergunta.opcoes} 
-            tema={pergunta.tema}
-          />
-        ))}
+        
+        {
+          perguntas.map((pergunta) => (
+            <Pergunta 
+              key={pergunta.id}
+              id={pergunta.id}
+              pergunta={pergunta.pergunta}
+              opcoes={pergunta.opcoes} 
+              tema={pergunta.tema}
+            />
+          ))
+        }
+
       </div> 
   );
 

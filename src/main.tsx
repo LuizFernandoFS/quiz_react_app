@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     element: <App />
   },
   {
-    path: "perguntas/:tema",
+    path: "perguntas",
     element: <Pergunta />
   }
 ]);
