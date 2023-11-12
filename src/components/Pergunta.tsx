@@ -3,17 +3,25 @@ import "./Pergunta.css";
 
 export function Pergunta(pergunta: PerguntaInterface) {
 
+    function onClickResposta(value: string | undefined)  {
+        console.log(value);
+        pergunta.onSelectResposta(pergunta.id, value);
+    }
+
     return(
         <div className="pergunta-container">
-            <p>{pergunta.pergunta}</p>
+            <p>
+                <strong>
+                    {pergunta.pergunta}
+                </strong>
+            </p>
             <ul>
-                <p> A) {pergunta.opcoes?.A}</p>
-                <p> B) {pergunta.opcoes?.B}</p>
-                <p> C) {pergunta.opcoes?.C}</p>
-                <p> D) {pergunta.opcoes?.D}</p>
+                <p onClick={() => onClickResposta("A")}> A) {pergunta.opcoes?.A}</p>
+                <p onClick={() => onClickResposta("B")}> B) {pergunta.opcoes?.B}</p>
+                <p onClick={() => onClickResposta("C")}> C) {pergunta.opcoes?.C}</p>
+                <p onClick={() => onClickResposta("D")}> D) {pergunta.opcoes?.D}</p>
             </ul>
             <p>Tema: {pergunta.tema}</p>
-            <hr />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 export interface Pergunta {
-    id?: number;
-    pergunta?: string;
+    id?: number | undefined;
+    pergunta?: string | undefined;
     opcoes?: {
         A: string;
         B: string;
@@ -10,4 +10,5 @@ export interface Pergunta {
     resposta_correta?: string;
     tema?: string;
     nivel_dificuldade?: string;
+    onSelectResposta: (id: any, value: string | undefined) => {};
 }
