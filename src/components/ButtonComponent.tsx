@@ -5,12 +5,14 @@ import axios from "axios";
 import { Pergunta as PerguntaInterface } from "../interfaces/Pergunta";
 import { Pergunta } from "./Pergunta";
 import { PainelComponent } from "./PainelComponent";
+import { GameOver } from "./GameOver";
 
 export function ButtonComponent() {
 
   const baseUrl: string = "http://localhost:5000";
   const [perguntas, setPerguntas] = useState<PerguntaInterface[]>([]);
   const [inicioQuiz, setInicioQuiz] = useState<boolean>(false);
+  const [finalQuiz, setFinalQuiz] = useState<boolean>(false);
   const [contador, setContador] = useState(0);
   const [pontuacao, setPontuacao] = useState(0);
 
@@ -32,6 +34,7 @@ export function ButtonComponent() {
 
       if (perguntas.length - 1 == contador) {
         setInicioQuiz(false);
+        setFinalQuiz(true);
         setContador(0);
         return;
       }
@@ -57,8 +60,6 @@ export function ButtonComponent() {
     <>
       { 
         !inicioQuiz ?
-
-
           <div className="button-component">
             <div className="header">
               <h1>Quiz App</h1>
@@ -78,7 +79,16 @@ export function ButtonComponent() {
             <button type="button" className="btn btn-primary" onClick={() => handleClick("aleatorias")}>
               Aleatórias
             </button>
+
+            { finalQuiz &&
+             <GameOver
+                acertos={pontuacao / 10}
+                pontuacaoFinal={pontuacao}
+                quantidadeDePerguntas={perguntas.length}
+              />
+            } 
           </div>
+          
           :
           <> 
               <Pergunta
