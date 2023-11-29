@@ -4,7 +4,7 @@ import "./Pergunta.css";
 export function Pergunta(pergunta: PerguntaInterface) {
 
     function onClickResposta(value: string | undefined)  {
-        pergunta.onSelectResposta(pergunta.id, value);
+       pergunta.onSelectResposta(pergunta.id, value); 
     }
 
     return(

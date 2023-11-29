@@ -10,5 +10,5 @@ export interface Pergunta {
     resposta_correta?: string;
     tema?: string;
     nivel_dificuldade?: string;
-    onSelectResposta: (id: any, value: string | undefined) => {};
+    onSelectResposta?: (id: number, value: string ) => Promise<void>;
 }

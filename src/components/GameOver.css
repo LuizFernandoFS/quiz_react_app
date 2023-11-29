@@ -14,15 +14,55 @@
     text-align: center;
     border: 1px solid #007bff;
     width: 500px;
-    height: 200px;
+    height: 250px;
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 10px;
     background-color: #f0f0f0;
 }
 
 .game-over p {
     color: #000;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bolder;
     background-color: #f0f0f0;
+}
+
+.opcoes span {
+    padding-left: 10px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.resposta-correta {
+    color: green;
+}
+
+.resposta-incorreta {
+    color: red;
+}
+
+.gabarito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #007bff;
+    width: 700px;
+    height: 250px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.container-gabarito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.gabarito p {
+    font-size: 18px;
+    font-weight: bolder;
 }
